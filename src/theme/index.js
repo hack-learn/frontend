@@ -1,16 +1,16 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import blue from '@material-ui/core/colors/blue';
-import lightGreen from '@material-ui/core/colors/lightGreen';
+// import blue from '@material-ui/core/colors/blue';
+// import lightGreen from '@material-ui/core/colors/lightGreen';
 
 export default createMuiTheme({
   palette: {
     primary: {
-      main: lightGreen[700],
+      main: '#5f60a7', // 5f60a7
       contrastText: '#ffffff',
     },
     secondary: {
-      main: blue[700],
-      contrastText: '#ffffff',
+      main: '#65c4e2', // 65c4e2
+      contrastText: '#333333',
     },
   },
 });
