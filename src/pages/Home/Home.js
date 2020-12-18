@@ -1,7 +1,8 @@
+import React from 'react';
 // import { useContext } from 'react';
 // import StoreContext from '../../store';
 
-export default () => {
+const Home = () => {
   // const { globalState, dispatch } = useContext(StoreContext);
 
   return (
@@ -10,3 +11,5 @@ export default () => {
     </div>
   );
 };
+
+export default Home;
