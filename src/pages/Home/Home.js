@@ -1,2 +1,12 @@
+// import { useContext } from 'react';
+// import StoreContext from '../../store';
 
-export default () => <div>Home</div>;
+export default () => {
+  // const { globalState, dispatch } = useContext(StoreContext);
+
+  return (
+    <div>
+      Home
+    </div>
+  );
+};
