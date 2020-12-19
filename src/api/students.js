@@ -1,16 +1,23 @@
 import axios from 'axios';
+import Cookies from "js-cookie";
+
+axios.defaults.xsrfHeaderName = "X-CSRFToken";
+axios.defaults.xsrfCookieName = "csrftoken";
+
 const api = process.env.REACT_APP_API_URI;
 console.log(`${api}users`);
 export default class Students {
   
   static async list () {
-    const res = await Promise.resolve([{
+    const res = await axios.get(`${api}/users/?format=json`);
+    console.log(res);
+    /*const res = await Promise.resolve([{
       first_name: 'Francisco',
       last_name: 'Hidalgo',
       email: 'gus@mail.com',
       objetivo: 'Frontend developer'
-    }]);
-    return res;
+    }]);*/
+    return res.data;
   }
 
   /**
@@ -28,8 +35,13 @@ export default class Students {
    * }} data 
    */
   static async create (data) {
-    console.log(data);
-    const res = await axios.post(`${api}/users`, data);
+    console.log('COOKIE', Cookies.get('csrftoken'));
+    const res = await axios.post(`${api}/users?format=json`, data, {
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": Cookies.get('csrftoken'),
+      }
+    });
     /* ({
       uri: ,
       method: 'POST',
