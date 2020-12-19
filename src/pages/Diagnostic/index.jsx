@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Card, CardContent, Grid, Button } from '@material-ui/core';
+import { Container, Card, CardContent, Grid, Button, TextField } from '@material-ui/core';
 import { Questions } from '../../api';
 import test from '../../assets/img/test.svg';
 
@@ -33,30 +33,70 @@ const Diagnostic = ({ history }) => {
 
   if (!questions) return <h1>Cargando...</h1>;
   return (
-    <div>
-      <Container style={{}}>
-        <Card>
-          <CardContent style={{
-            display: 'flex'
-          }}>
-              <Grid lg="5">
-                <img src={test} alt=""/>
-              </Grid>
-              <Grid lg="7" style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                alignItems: 'flex-end'
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      height: '100%',
+      backgroundColor: '#E5E5E5'
+    }}>
+      <Card style={{
+        width: '80%',
+        borderRadius: '28px'
+      }}>
+        <CardContent style={{
+          display: 'flex'
+        }}>
+            <Grid lg="6">
+              <img
+                style={{
+                  width: '100%'
+                }}
+                src={test}
+                alt=""
+              />
+            </Grid>
+            <Grid lg="6" style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              alignItems: 'flex-end',
+              padding: '28px'
+            }}>
+              <div style={{
+                width: '100%'
               }}>
-                <div>
-                  <p>{questions[count].description}</p>
-                  <textarea placeholder="RESPUESTA" defaultValue={anwser} value={anwser} onChange={handleChange}></textarea>
+                <p style={{
+                  fontSize: '28px'
+                }}>
+                  {questions[count].description}
+                </p>
+                <div style={{
+                  marginTop: '90px'
+                }}>
+                  <TextField
+                    style={{
+                      width: '90%'
+                    }}
+                    placeholder="Respuesta"
+                    multiline
+                    value={anwser} 
+                    onChange={handleChange}
+                  />
                 </div>
-                <Button onClick={handleNextQuestion}>Siguiente</Button>
-              </Grid>
-          </CardContent>
-        </Card>
-      </Container>
+              </div>
+              <Button 
+                style={{
+                  fontWeight: 'bold'
+                }}
+                onClick={handleNextQuestion}
+              >
+                Siguiente
+              </Button>
+            </Grid>
+        </CardContent>
+      </Card>
     </div>
   );
 }
