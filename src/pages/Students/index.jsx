@@ -5,8 +5,11 @@ import studentCover from '../../assets/img/student.svg';
 
 const Students = ({ history }) => {
   const [students, setStudents] = useState(false);
-  const handleClick = () => {
-    history.push('students/64289137')
+  const handleClick = (id) => {
+    history.push({
+      pathname: '/students/detail',
+      state: { student: id }
+    })
   }
 
   useEffect(() => {
@@ -39,7 +42,7 @@ const Students = ({ history }) => {
               borderRadius: '28px',
               cursor: 'pointer'
             }}
-            onClick={handleClick}
+            onClick={() => handleClick(student.first_name)}
           >
             <Grid lg="9">
               <h2 style={{
