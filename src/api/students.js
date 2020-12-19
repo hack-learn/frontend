@@ -1,3 +1,6 @@
+import axios from 'axios';
+const api = process.env.REACT_APP_API_URI;
+console.log(`${api}users`);
 export default class Students {
   
   static async list () {
@@ -26,8 +29,18 @@ export default class Students {
    */
   static async create (data) {
     console.log(data);
-    const res = await Promise.resolve(data);
-    return res;
+    axios({
+      uri: `${api}users`,
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      data
+    }).then((res) => {
+      console.log(res.data)
+    })
+    //console.log(res.data);
+    //return res;
   }
 
 }
