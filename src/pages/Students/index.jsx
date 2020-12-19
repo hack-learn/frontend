@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, Grid } from '@material-ui/core';
-// import { Students } from '../../api';
+import { Students as Service } from '../../api';
 import studentCover from '../../assets/img/student.svg';
 
 const Students = ({ history }) => {
-  const [students] = useState([0,1,2,3,4,5,6]);
+  const [students, setStudents] = useState(false);
   const handleClick = () => {
     history.push('students/64289137')
   }
 
+  useEffect(() => {
+    Service.list()
+    .then((res) => {
+      console.log(res)
+      setStudents(res);
+    })
+    .catch();
+  }, []);
+
+  if (!students) return <p>Cargando</p>
   return (
     <div style={{
       width: '100%',
@@ -18,7 +28,7 @@ const Students = ({ history }) => {
     }}>
 
       {
-        students.map(() => (
+        students.map((student) => (
           <Card
             style={{
               display: 'flex',
@@ -37,16 +47,16 @@ const Students = ({ history }) => {
               }}>INFORMACION BÁSICA</h2>
               <p style={{
                 marginBottom: '10px'
-              }}>Francisco Gustavo</p>
+              }}>{student.first_name}</p>
               <p style={{
                 marginBottom: '10px'
-              }}>Ser desarollador full stack</p>
+              }}>{student.email}</p>
               <p style={{
                 marginBottom: '10px'
-              }}>Ser desarollador full stack</p>
+              }}>{student.country}</p>
               <p style={{
                 marginBottom: '10px'
-              }}>Ser desarollador full stack</p>
+              }}>{student.specialty}</p>
             </Grid>
             <Grid
               style={{
