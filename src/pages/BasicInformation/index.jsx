@@ -32,12 +32,12 @@ const BasicInformation = ({ history }) => {
   const handleSend = () => {
     Students.create(form).then((res) => {
       console.log(res.data)
-     // history.push('/diagnostic?user=2365');
+      history.push('/diagnostic?user=2365');
     })
     .catch(err => {
       console.log(err)
       // alert('Upss algo no salio bien')
-     // history.push('/diagnostic?user=2365');
+      history.push('/diagnostic?user=2365');
     })
   }
 
