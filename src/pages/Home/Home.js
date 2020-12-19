@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../../assets/img/logo.png';
 import women from '../../assets/img/women.png';
 import search from '../../assets/img/search.png';
+import { Link } from 'react-router-dom';
 // import { useContext } from 'react';
 // import StoreContext from '../../store';
 
@@ -25,7 +26,7 @@ const Home = () => {
           orientar tus objetivos, especialidad e intereses 
           para que tu aprendizaje sea significativo.
           </p>
-          <button type="submit">COMENZAR AHORA</button>
+          <Link to="/basic-information">COMENZAR AHORA</Link>
         </div>
         <div>
           <figure>
