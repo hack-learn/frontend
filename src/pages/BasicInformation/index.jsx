@@ -18,7 +18,9 @@ const BasicInformation = ({ history }) => {
     github: '',
     occupation: 'estudio',
     english_level: 'a1',
-    specialty: 'frontend'
+    specialty: 'frontend',
+    password: 'sandbox',
+    // username: 'sandbox',
   });
 
   const handleChange = (e) => {
@@ -30,7 +32,7 @@ const BasicInformation = ({ history }) => {
   };
 
   const handleSend = () => {
-    Students.create(form).then((res) => {
+    Students.create({ ...form, username: form.email }).then((res) => {
       console.log(res.data)
       history.push('/diagnostic?user=2365');
     })

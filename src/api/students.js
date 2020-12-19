@@ -5,7 +5,7 @@ axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.xsrfCookieName = "csrftoken";
 
 const api = process.env.REACT_APP_API_URI;
-console.log(`${api}users`);
+console.log(`${api}/users`);
 export default class Students {
   
   static async list () {
@@ -30,10 +30,10 @@ export default class Students {
    */
   static async create (data) {
     console.log('COOKIE', Cookies.get('csrftoken'));
-    const res = await axios.post(`${api}/users?format=json`, data, {
+    const res = await axios.post(`${api}/users/`, data, {
       headers: {
         "Content-Type": "application/json",
-        "X-CSRFToken": Cookies.get('csrftoken'),
+        // "X-CSRFToken": Cookies.get('csrftoken'),
       }
     });
     return res;
