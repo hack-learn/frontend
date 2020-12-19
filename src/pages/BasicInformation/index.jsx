@@ -47,11 +47,12 @@ const BasicInformation = ({ history }) => {
       justifyContent: 'center',
       alignItems: 'center',
       width: '100%',
-      height: '100%'
-      
+      height: '100%',
+      backgroundColor: '#E5E5E5'
     }}>
       <Card style={{
-        width: '80%'
+        width: '80%',
+        borderRadius: '28px'
       }}>
         <CardContent>        
           <Grid 
