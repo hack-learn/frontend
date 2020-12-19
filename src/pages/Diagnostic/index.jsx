@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, Grid, Button, TextField } from '@material-ui/core';
-import { Questions } from '../../api';
+import { Questions, Anwsers } from '../../api';
 import test from '../../assets/img/test.svg';
 
-const Diagnostic = ({ history }) => {
+const Diagnostic = ({ history, location }) => {
   const [questions, setQuestions] = useState(false);
   const [count, setCount] = useState(0);
   const [anwser, setAnwser] = useState('');
@@ -19,12 +19,24 @@ const Diagnostic = ({ history }) => {
   }, []);
 
   const handleNextQuestion = () => {
+    console.log('NEXT')
+    if (anwser === '' || !anwser) {
+      return alert('Por favor responde la pregunta');
+    }
     if (count === questions.length - 1) {
       // alert('Has completado el diagnostico');
       history.push('/diagnostic/success');
     } else {
-      setCount(count + 1);
-      setAnwser('');
+      Anwsers.create({
+        user_id: location.search.substr(6), 
+        question_id: questions[count].id,
+        anwser
+      })
+        .then(() => {
+          setCount(count + 1);
+          setAnwser('');
+        })
+        .catch();
     }
   }
   const handleChange = (e) => {
