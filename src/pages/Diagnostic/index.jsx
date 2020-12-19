@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent, Grid, Button, TextField } from '@material-ui/core';
 import { Questions, Anwsers } from '../../api';
 import test from '../../assets/img/test.svg';
+import frontedPicture from '../../assets/img/frontend.jpg';
+import backendPicture from '../../assets/img/backend.jpg';
 
 const Diagnostic = ({ history, location }) => {
   const [questions, setQuestions] = useState(false);
@@ -51,7 +53,8 @@ const Diagnostic = ({ history, location }) => {
       alignItems: 'center',
       width: '100%',
       height: '100%',
-      backgroundColor: '#E5E5E5'
+      backgroundColor: '#E5E5E5',
+      overflowY: 'auto'
     }}>
       <Card style={{
         width: '80%',
@@ -61,13 +64,9 @@ const Diagnostic = ({ history, location }) => {
           display: 'flex'
         }}>
             <Grid lg="6">
-              <img
-                style={{
-                  width: '100%'
-                }}
-                src={test}
-                alt=""
-              />
+              {questions[count].category === 'frontend' ? <img style={{width: '100%', height: '389px'}} src={frontedPicture} alt="" /> : null}
+              {questions[count].category === 'backend' ? <img style={{width: '100%', height: '389px'}} src={backendPicture} alt="" /> : null}
+              {questions[count].category === 'soft' ? <img style={{width: '100%', height: '389px'}} src={test} alt="" /> : null}
             </Grid>
             <Grid lg="6" style={{
               display: 'flex',
@@ -85,17 +84,39 @@ const Diagnostic = ({ history, location }) => {
                   {questions[count].description}
                 </p>
                 <div style={{
-                  marginTop: '90px'
+                  marginTop: '80px'
                 }}>
-                  <TextField
-                    style={{
-                      width: '90%'
-                    }}
-                    placeholder="Respuesta"
-                    multiline
-                    value={anwser} 
-                    onChange={handleChange}
-                  />
+                  {
+                    !questions[count].options
+                      ? (<TextField
+                        style={{
+                          width: '90%'
+                        }}
+                        placeholder="Respuesta"
+                        multiline
+                        value={anwser} 
+                        onChange={handleChange}
+                      />)
+                      : (
+                        <div style={{
+                          display:'grid'
+                        }}>
+                          {
+                            questions[count].options.map((option) => (
+                              <Button style={{
+                                display: 'flex',
+                                justifyContent: 'flex-start',
+                                marginBottom: '10px'
+                              }}
+                              key={option}
+                              onClick={() => setAnwser(option)}
+                              >{option}</Button>
+                            ))
+                          }
+                        </div>
+                      )
+                  }
+                  
                 </div>
               </div>
               <Button 
