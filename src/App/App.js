@@ -6,7 +6,9 @@ import {
   Home,
   BasicInformation,
   Students,
-  Diagnostic
+  Diagnostic,
+  Detail,
+  Success
 } from '../pages';
 import theme from '../theme';
 import './App.css';
@@ -25,7 +27,9 @@ function App() {
               </Route>
               <Route exact path="/basic-information" component={BasicInformation} />
               <Route exact path="/students" component={Students} />
+              <Route exact path="/students/:id" component={Detail} />
               <Route exact path="/diagnostic" component={Diagnostic} />
+              <Route exact path="/diagnostic/success" component={Success} />
             </Switch>
           </Router>
         </StoreContext.Provider>
