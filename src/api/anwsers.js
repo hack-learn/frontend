@@ -2,7 +2,7 @@ export default class Anwsers {
   /**
    * 
    * @param {{
-   * id: string,
+   * user_id: string,
    * question_id: string,
    * anwser: string,
    * }} data 
