@@ -11,12 +11,6 @@ export default class Students {
   static async list () {
     const res = await axios.get(`${api}/users/?format=json`);
     console.log(res);
-    /*const res = await Promise.resolve([{
-      first_name: 'Francisco',
-      last_name: 'Hidalgo',
-      email: 'gus@mail.com',
-      objetivo: 'Frontend developer'
-    }]);*/
     return res.data;
   }
 
@@ -42,17 +36,6 @@ export default class Students {
         // "X-CSRFToken": Cookies.get('csrftoken'),
       }
     });
-    /* ({
-      uri: ,
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      data
-    }).then((res) => {
-      console.log(res.data)
-    })*/
-    //console.log(res.data);
     return res;
   }
 
