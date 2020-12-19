@@ -4,7 +4,8 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import StoreContext, { initialState, reducer } from '../store';
 import { 
   Home,
-  BasicInformation
+  BasicInformation,
+  Students
 } from '../pages';
 import theme from '../theme';
 import './App.css';
@@ -22,6 +23,7 @@ function App() {
                 <Home />
               </Route>
               <Route exact path="/basic-information" component={BasicInformation} />
+              <Route exact path="/students" component={Students} />
             </Switch>
           </Router>
         </StoreContext.Provider>
