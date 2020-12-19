@@ -4,7 +4,7 @@ import { Card, Grid } from '@material-ui/core';
 import studentCover from '../../assets/img/student.svg';
 
 const Students = ({ history }) => {
-  const [students, setStudents] = useState([0,1,2,3,4,5,6]);
+  const [students] = useState([0,1,2,3,4,5,6]);
   const handleClick = () => {
     history.push('students/64289137')
   }
