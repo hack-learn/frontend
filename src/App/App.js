@@ -5,7 +5,8 @@ import StoreContext, { initialState, reducer } from '../store';
 import { 
   Home,
   BasicInformation,
-  Students
+  Students,
+  Diagnostic
 } from '../pages';
 import theme from '../theme';
 import './App.css';
@@ -24,6 +25,7 @@ function App() {
               </Route>
               <Route exact path="/basic-information" component={BasicInformation} />
               <Route exact path="/students" component={Students} />
+              <Route exact path="/diagnostic" component={Diagnostic} />
             </Switch>
           </Router>
         </StoreContext.Provider>

@@ -29,8 +29,9 @@ export default class Students {
    */
   static async create (data) {
     console.log(data);
-    axios({
-      uri: `${api}users`,
+    const res = await axios.post(`${api}api/users`, data);
+    /* ({
+      uri: ,
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
@@ -38,9 +39,9 @@ export default class Students {
       data
     }).then((res) => {
       console.log(res.data)
-    })
+    })*/
     //console.log(res.data);
-    //return res;
+    return res;
   }
 
 }

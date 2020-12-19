@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Card, Input, Select, MenuItem, Grid, Container, Button, InputLabel, CardContent } from '@material-ui/core';
-// import { Students } from '../../api';
-import axios from 'axios';
+import { Students } from '../../api';
 
-const BasicInformation = () => {
+const BasicInformation = ({ history }) => {
   const [form, setForm] = useState({
     first_name: '',
     email: '',
@@ -25,7 +24,7 @@ const BasicInformation = () => {
   };
 
   const handleSend = () => {
-    axios.post('https://hack-learning.herokuapp.com/users', form, )
+    //axios.post('https://hack-learning.herokuapp.com/users', form, )
     /*axios.post({
       uri: `https://hack-learning.herokuapp.com/users`,
       method: 'POST',
@@ -33,11 +32,15 @@ const BasicInformation = () => {
         'Content-type': 'application/json'
       },
       data: form
-    })*/.then((res) => {
+    })*/
+    Students.create(form).then((res) => {
       console.log(res.data)
+      history.push('/diagnostic');
     })
     .catch(err => {
       console.log(err)
+      // alert('Upss algo no salio bien')
+      history.push('/diagnostic');
     })
     // Students.create(form);
   }
