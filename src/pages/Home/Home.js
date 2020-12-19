@@ -1,9 +1,7 @@
 import React from 'react';
-import { header } from '@material-ui/core';
 import logo from '../../assets/img/logo.png';
 import women from '../../assets/img/women.png';
 import search from '../../assets/img/search.png';
-import background from '../../assets/img/background.png';
 import { Link } from 'react-router-dom';
 // import { useContext } from 'react';
 // import StoreContext from '../../store';
