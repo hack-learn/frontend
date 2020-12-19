@@ -3,7 +3,7 @@ import { Card, Input, Select, MenuItem, Grid, Container, Button, InputLabel, Car
 // import { Students } from '../../api';
 import axios from 'axios';
 
-const BasicInformation = () => {
+const BasicInformation = ({ history }) => {
   const [form, setForm] = useState({
     first_name: '',
     email: '',
@@ -35,9 +35,11 @@ const BasicInformation = () => {
       data: form
     })*/.then((res) => {
       console.log(res.data)
+      history.push('/diagnostic');
     })
     .catch(err => {
-      console.log(err)
+      // alert('Upss algo no salio bien')
+      history.push('/diagnostic');
     })
     // Students.create(form);
   }

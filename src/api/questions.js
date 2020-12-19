@@ -3,8 +3,19 @@ export default class Questions {
     const res = await Promise.resolve([
       {
         description: '¿Qué te gustaria conseguir?',
-        component: 'option_multiple'
-      }
+      },
+      {
+        description: '¿Cuáles son tus objetivos?',
+      },
+      {
+        description: '¿En cuanto tiempo?',
+      },
+      {
+        description: '¿Como te visualizas?',
+      },
+      {
+        description: '¿Que sueñas?',
+      },
     ]);
     return res; 
   }
