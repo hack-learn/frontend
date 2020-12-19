@@ -25,6 +25,7 @@ export default class Students {
    * }} data 
    */
   static async create (data) {
+    console.log(data);
     const res = await Promise.resolve(data);
     return res;
   }
