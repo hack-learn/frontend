@@ -33,7 +33,7 @@ export default class Questions {
       },
       {
         id: '6',
-        description: '¿Qué te gustaria conseguir?',
+        description: '¿Dentro de qué elemento HTML ponemos JavaScript?',
         category: 'frontend',
         options: ['option 1', 'option 2', 'option 3']
       },
@@ -63,31 +63,31 @@ export default class Questions {
       },
       {
         id: '11',
-        description: '¿Qué te gustaria conseguir?',
+        description: '¿Qué es Http?',
         category: 'backend',
-        options: ['option 1', 'option 2', 'option 3']
+        options: ['Un protocolo', 'Un framework', 'option 3']
       },
       {
         id: '12',
-        description: '¿Cuáles son tus objetivos?',
+        description: '¿Qué es Rest?',
         category: 'backend',
         options: ['option 1', 'option 2', 'option 3']
       },
       {
         id: '13',
-        description: '¿En cuanto tiempo?',
+        description: '¿Qué es Integración Continua (CI)?',
         category: 'backend',
         options: ['option 1', 'option 2', 'option 3']
       },
       {
         id: '14',
-        description: '¿Como te visualizas?',
+        description: 'Las pruebas de aceptación y pruebas funcionales son respectivamente:',
         category: 'backend',
         options: ['option 1', 'option 2', 'option 3']
       },
       {
         id: '15',
-        description: '¿Que sueñas?',
+        description: '¿Cuál de los dos códigos cumple el principio de no te repitas?  ',
         category: 'backend',
         options: ['option 1', 'option 2', 'option 3']
       },
