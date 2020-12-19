@@ -2,7 +2,10 @@ import { useReducer } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
 import StoreContext, { initialState, reducer } from '../store';
-import Home from '../pages/Home/Home';
+import { 
+  Home,
+  BasicInformation
+} from '../pages';
 import theme from '../theme';
 import './App.css';
 
@@ -15,9 +18,10 @@ function App() {
         <StoreContext.Provider value={{ globalState, dispatch }}>
           <Router>
             <Switch>
-              <Route path="/">
+              <Route exact path="/">
                 <Home />
               </Route>
+              <Route exact path="/basic-information" component={BasicInformation} />
             </Switch>
           </Router>
         </StoreContext.Provider>
