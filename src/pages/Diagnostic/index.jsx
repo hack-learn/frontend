@@ -20,8 +20,8 @@ const Diagnostic = ({ history }) => {
 
   const handleNextQuestion = () => {
     if (count === questions.length - 1) {
-      alert('Has completado el diagnostico');
-      history.push('/');
+      // alert('Has completado el diagnostico');
+      history.push('/diagnostic/success');
     } else {
       setCount(count + 1);
       setAnwser('');
