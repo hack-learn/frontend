@@ -29,7 +29,7 @@ export default class Students {
    */
   static async create (data) {
     console.log(data);
-    const res = await axios.post(`${api}api/users`, data);
+    const res = await axios.post(`${api}/users`, data);
     /* ({
       uri: ,
       method: 'POST',

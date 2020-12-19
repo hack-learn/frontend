@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { Card, Input, Select, MenuItem, Grid, Container, Button, InputLabel, CardContent } from '@material-ui/core';
 import { Students } from '../../api';
+import basic from '../../assets/img/basic.svg';
+
+const styleInput = {
+  width: '100%',
+  marginBottom: '2.5px'
+}
 
 const BasicInformation = ({ history }) => {
   const [form, setForm] = useState({
@@ -24,15 +30,6 @@ const BasicInformation = ({ history }) => {
   };
 
   const handleSend = () => {
-    //axios.post('https://hack-learning.herokuapp.com/users', form, )
-    /*axios.post({
-      uri: `https://hack-learning.herokuapp.com/users`,
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      data: form
-    })*/
     Students.create(form).then((res) => {
       console.log(res.data)
       history.push('/diagnostic');
@@ -42,68 +39,78 @@ const BasicInformation = ({ history }) => {
       // alert('Upss algo no salio bien')
       history.push('/diagnostic');
     })
-    // Students.create(form);
   }
 
   return (
-    <Container>
-      <Card>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      height: '100%'
+      
+    }}>
+      <Card style={{
+        width: '80%'
+      }}>
         <CardContent>        
-          <Grid style={{
-            display: 'flex'
-          }} justify="space-between">
-            <Grid lg="8">
-              <Grid>
-                <Input
-                  placeholder="Nombre completo" 
-                  onChange={handleChange}
-                  name="first_name"
-                  value={form['first_name']}
-                />
-              </Grid>
-              <Grid>
-                <Input
-                  placeholder="Correo electronico" 
-                  onChange={handleChange}
-                  name="email"
-                  value={form['email']}
-                />
-              </Grid>
-              <Grid>
-                <Input
-                  placeholder="Pais" 
-                  onChange={handleChange}
-                  name="country"
-                  value={form['country']}
-                />
-              </Grid>
-              <Grid>
-                <Input
-                  placeholder="Ciudad" 
-                  onChange={handleChange}
-                  name="city"
-                  value={form['city']}
-                />
-              </Grid>
-              <Grid>
-                <Input
-                  placeholder="LinkedIn" 
-                  onChange={handleChange}
-                  name="linkedin"
-                  value={form['linkedin']}
-                />
-              </Grid>
-              <Grid>
-                <Input
-                  placeholder="GitHub" 
-                  onChange={handleChange}
-                  name="github"
-                  value={form['github']}
-                />
-              </Grid>
-              <Grid>
+          <Grid 
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+            }} 
+            justify="space-between"
+          >
+            <Grid lg="6">
+              <Input
+                style={styleInput}
+                placeholder="Nombre completo" 
+                onChange={handleChange}
+                name="first_name"
+                value={form['first_name']}
+              />
+              <Input
+                style={styleInput}
+                placeholder="Correo electronico" 
+                onChange={handleChange}
+                name="email"
+                value={form['email']}
+              />
+              <Input
+                style={styleInput}
+                placeholder="Pais" 
+                onChange={handleChange}
+                name="country"
+                value={form['country']}
+              />
+              <Input
+                style={styleInput}
+                placeholder="Ciudad" 
+                onChange={handleChange}
+                name="city"
+                value={form['city']}
+              />
+              <Input
+                style={styleInput}
+                placeholder="LinkedIn" 
+                onChange={handleChange}
+                name="linkedin"
+                value={form['linkedin']}
+              />
+              <Input
+                style={styleInput}
+                placeholder="GitHub" 
+                onChange={handleChange}
+                name="github"
+                value={form['github']}
+              />
+              <Grid style={{
+                marginBottom: '10px',
+                marginTop: '10px'
+              }}>
                 <InputLabel id="occupation">¿Qué haces actualmente?</InputLabel>
                 <Select
+                  style={styleInput}
                   labelId="occupation"
                   value={form['occupation']}
                   name="occupation"
@@ -113,9 +120,12 @@ const BasicInformation = ({ history }) => {
                   <MenuItem value="trabajo">Trabajo</MenuItem>
                 </Select>
               </Grid>
-              <Grid>
+              <Grid style={{
+                marginBottom: '10px'
+              }}>
                 <InputLabel id="english_level">¿Cuál es tu nivel de ingles?</InputLabel>
                 <Select
+                  style={styleInput}
                   labelId="english_level"
                   value={form['english_level']}
                   name="english_level"
@@ -129,9 +139,12 @@ const BasicInformation = ({ history }) => {
                   <MenuItem value="c2">C2</MenuItem>
                 </Select>
               </Grid>
-              <Grid>
+              <Grid style={{
+                marginBottom: '10px'
+              }}>
                 <InputLabel id="specialty">¿Cuál es tu especialidad?</InputLabel>
                 <Select
+                  style={styleInput}
                   labelId="specialty"
                   value={form['specialty']}
                   name="specialty"
@@ -143,13 +156,29 @@ const BasicInformation = ({ history }) => {
               </Grid>
               <Button onClick={handleSend}>Siguiente</Button>
             </Grid> 
-            <Grid lg="4">
-              IMG
+            <Grid 
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+                height: '100%'
+              }}
+              lg="5"
+            >
+              <img 
+                style={{
+                  width: '100%',
+                  height: '100%'
+                }}
+                src={basic}
+                alt="basic profile"
+              />
             </Grid>
           </Grid>
         </CardContent>
       </Card>
-    </Container>
+    </div>
   )
 }
 
